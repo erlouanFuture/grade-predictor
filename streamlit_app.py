@@ -293,14 +293,15 @@ def main():
         feature_values.append(input1)
 
     # Convert to numpy array for prediction
-    input_array = np.array(feature_values).reshape(1, -1).astype(np.float32)
+    input_array = np.array(feature_values).reshape(1, 19).astype(np.float32)
+    print(input_array.shape)
 
     # --- Prediction Button ---
     if st.button("Predict your future grades 🤗!"):
         if model is not None:
             try:
                 # Make prediction
-                prediction = model.predict(input_array)
+                prediction = model.predict(input_array[0])
 
                 st.subheader("3. Prediction Result 🥁(drumroll please)")
                # st.write(f"Input Features: {input_array[0].tolist()}")
