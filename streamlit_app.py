@@ -170,7 +170,7 @@ import os
 # @st.cache_resource is crucial for performance: it loads the model only once
 # when the app starts, not every time a user interacts with it.
 @st.cache_resource
-def load_keras_model(model_path="my_model.keras"):
+def load_keras_model(model_path="BestOfGradePredictors.keras"):
     """
     Loads a Keras model from the specified path.
     Uses st.cache_resource to load the model only once.
@@ -196,7 +196,7 @@ def main():
 
     # --- Load Model Section ---
     st.header("1. Model Status")
-    model_filename = "my_model.keras"
+    model_filename = "BestOfGradePredictors.keras"
     model = None
     try:
         with st.spinner(f"Loading {model_filename}..."):
@@ -301,7 +301,7 @@ def main():
         if model is not None:
             try:
                 # Make prediction
-                prediction = model.predict(input_array[0])
+                prediction = model.predict(input_array)
 
                 st.subheader("3. Prediction Result 🥁(drumroll please)")
                # st.write(f"Input Features: {input_array[0].tolist()}")
